@@ -47,22 +47,207 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 
-Say what the step will be
+- Clone this repository.
+- Install all required packages as mentioned in pre-requisites.
+- Execute index_documents.py module (from indexing package) to transform csv to json and index all documents in elastic search.Its one time activity unless we have fresh batch of data or we need to update existing documents.
+- After indexing, search can be made on indexed document.Start flask server and publish end point for search api.Command to start flask application is :
 
-```
-Give the example
-```
+    ```
+    cd microservice
+    python flask_app.py
+    ```
+- Default port for flask is : 5000 . Once flask is up and running, you should see logs in terminal as below:
+    ```
+    * Debug mode: off
+    * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+    ```
+- End point to serve user requests over POST method is : http://localhost:5000/api/search 
+   
 
-And repeat
 
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Sample requests and responses for API : http://localhost:5000/api/search
+
+- Sample-1 (single keyword as "dog","cat","boy"):
+    ```json
+        {
+      "userInput":"cat"	
+        }  
+    ```
+    
+     ```json
+       {
+      "searchResults": [
+        {
+          "link": "https://testelk.in/3",
+          "objects": [
+            {
+              "duration": "(20-30)",
+              "object": "cat"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/4",
+          "objects": [
+            {
+              "duration": "(5-20)",
+              "object": "cat"
+            }
+          ]
+        }
+      ]
+    }
+    ```
+- Sample-2 (Multiple keywords seperated by '&' character.Example -"dog&cat" which means videos with dog and cat together):           
+    ```json
+    {
+    "userInput":"dog&cat"	
+    }
+    ```
+    ```json
+    {
+      "searchResults": [
+        {
+          "link": "https://testelk.in/3",
+          "objects": [
+            {
+              "duration": "(45-55)",
+              "object": "dog"
+            },
+            {
+              "duration": "(20-30)",
+              "object": "cat"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/4",
+          "objects": [
+            {
+              "duration": "(5-20)",
+              "object": "cat"
+            },
+            {
+              "duration": "(10-60)",
+              "object": "dog"
+            }
+          ]
+        }
+      ]
+    }
+   ```
+- Sample-3 (Multiple keywords seperated by '||' character.Example -"dog||cat" which means videos with dog or cat):
+   ```json
+    {
+    "userInput":"dog||cat"	
+    }
+    ```  
+   ```json
+       {
+      "searchResults": [
+        {
+          "link": "https://testelk.in/3",
+          "objects": [
+            {
+              "duration": "(45-55)",
+              "object": "dog"
+            },
+            {
+              "duration": "(20-30)",
+              "object": "cat"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/4",
+          "objects": [
+            {
+              "duration": "(5-20)",
+              "object": "cat"
+            },
+            {
+              "duration": "(10-60)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.com/1",
+          "objects": [
+            {
+              "duration": "(2-5)&(55-58)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/9",
+          "objects": [
+            {
+              "duration": "(37-60)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/10",
+          "objects": [
+            {
+              "duration": "(37-60)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/12",
+          "objects": [
+            {
+              "duration": "(2-5)&(55-58)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/15",
+          "objects": [
+            {
+              "duration": "(3-40)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/21",
+          "objects": [
+            {
+              "duration": "(4-5)&(35-38)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/22",
+          "objects": [
+            {
+              "duration": "(2-5)&(55-58)",
+              "object": "dog"
+            }
+          ]
+        },
+        {
+          "link": "https://testelk.in/23",
+          "objects": [
+            {
+              "duration": "(2-5)&(55-58)",
+              "object": "dog"
+            }
+          ]
+        }
+      ]
+    }
+     ```
 
 

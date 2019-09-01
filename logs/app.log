@@ -8,3 +8,12 @@
 2019-09-02 00:04:09,471 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :cat||dog
 2019-09-02 00:04:09,471 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "cat OR dog"}}}
 2019-09-02 00:04:09,807 - indexing.index_documents - INFO - Response status code from search api: 200
+2019-09-02 02:25:45,964 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :cat
+2019-09-02 02:25:45,984 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "cat"}}}
+2019-09-02 02:25:46,190 - indexing.index_documents - INFO - Response status code from search api: 200
+2019-09-02 02:34:28,723 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :dog&cat
+2019-09-02 02:34:28,724 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "dog AND cat"}}}
+2019-09-02 02:34:28,770 - indexing.index_documents - INFO - Response status code from search api: 200
+2019-09-02 02:38:30,415 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :dog||cat
+2019-09-02 02:38:30,416 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "dog OR cat"}}}
+2019-09-02 02:38:30,595 - indexing.index_documents - INFO - Response status code from search api: 200
