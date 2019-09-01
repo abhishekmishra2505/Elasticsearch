@@ -1,0 +1,10 @@
+2019-09-01 23:57:46,442 - __main__ - INFO - Data transformation from csv to json is Completed .Now calling bulk index API to store in ES
+2019-09-01 23:57:46,442 - __main__ - INFO - bulk indexing URL :http://localhost:9200/videos/_bulk
+2019-09-01 23:57:48,594 - __main__ - INFO - Response status code from bulk index api: 200
+2019-09-01 23:57:48,594 - __main__ - INFO - Is any error in indexing? False
+2019-09-01 23:59:00,883 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :cat
+2019-09-01 23:59:00,883 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "cat"}}}
+2019-09-01 23:59:01,591 - indexing.index_documents - INFO - Response status code from search api: 200
+2019-09-02 00:04:09,471 - flask_app - INFO - User input after cleaning (spaces,extra characters except & and || ) is :cat||dog
+2019-09-02 00:04:09,471 - indexing.index_documents - INFO - input to ES search API :{"from": 0, "size": 50, "query": {"query_string": {"query": "cat OR dog"}}}
+2019-09-02 00:04:09,807 - indexing.index_documents - INFO - Response status code from search api: 200
