@@ -34,16 +34,15 @@ These instructions will get you a copy of the project up and running on your loc
      ```
      pip install -r requirement.txt
      ```
-- File video_details.csv should be placed inside data directory as it is datasource for this application. It contains tagged videos informations (video id,link and objects with their durations(in seconds)). Few samples:
-
+- File video_details.csv should be placed inside data directory as it is data source for this application. It contains tagged videos information (video id,link and objects with their durations(in seconds)). Few samples:
 
      
-   | id | link                   | objects                                                                                           |
-|----|------------------------|---------------------------------------------------------------------------------------------------|
-| 1  | https://testelk\.com/1 | car:\(0\-10\)\|\|dog:\(2\-5\)&\(55\-58\)\|\|tree:\(13\-45\)\|\|bird:\(22\-31\)\|\|girl:\(10\-60\) |
-| 2  | https://testelk\.in/2  | tree:\(3\-40\)\|\|bird:\(50\-60\)\|\|girl:\(20\-30\)                                              |
-| 3  | https://testelk\.in/3  | tree:\(2\-20\)\|\|dog:\(45\-55\)\|\|cat:\(20\-30\)                                                |
-   
+    | id | link                  | objects                                                                 |
+    |----|-----------------------|-------------------------------------------------------------------------|
+    | 1  | https://testelk.com/1 | car:(0-10)||dog:(2-5)&(55-58)||tree:(13-45)||bird:(22-31)||girl:(10-60) |
+    | 2  | https://testelk.in/2  | tree:(3-40)||bird:(50-60)||girl:(20-30)                                 |
+    | 3  | https://testelk.in/3  | tree:(2-20)||dog:(45-55)||cat:(20-30)                                   |
+       
 ### Installing
 
 
