@@ -71,13 +71,13 @@ These instructions will get you a copy of the project up and running on your loc
 Sample requests and responses for API : http://localhost:5000/api/search
 
 - Sample-1 (single keyword as "dog","cat","boy"):
-    ```json
+    ```json5
         {
       "userInput":"cat"	
         }  
     ```
     
-     ```json
+     ```json5
        {
       "searchResults": [
         {
@@ -102,12 +102,12 @@ Sample requests and responses for API : http://localhost:5000/api/search
     }
     ```
 - Sample-2 (Multiple keywords seperated by '&' character.Example -"dog&cat" which means videos with dog and cat together):           
-    ```json
+    ```json5
     {
     "userInput":"dog&cat"	
     }
     ```
-    ```json
+    ```json5
     {
       "searchResults": [
         {
@@ -140,12 +140,12 @@ Sample requests and responses for API : http://localhost:5000/api/search
     }
    ```
 - Sample-3 (Multiple keywords seperated by '||' character.Example -"dog||cat" which means videos with dog or cat):
-   ```json
+   ```json5
     {
     "userInput":"dog||cat"	
     }
     ```  
-   ```json
+   ```json5
        {
       "searchResults": [
         {
@@ -250,4 +250,7 @@ Sample requests and responses for API : http://localhost:5000/api/search
     }
      ```
 
-
+# Deployment
+Deploy project using container-orchestration system(kubernates)
+Add notes about how to deploy this on a production system.Will be updated shortly.
+ 
